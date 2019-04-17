@@ -3,21 +3,21 @@ services:
   - docker
 
 before_install:
-  - docker build -t patrick/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t comeanddancewithme/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run patrick/react-test npm test -- --coverage
+  - docker run comeanddancewithme/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t patrick/multi-client ./client
-  - docker build -t patrick/multi-nginx ./nginx
-  - docker build -t patrick/multi-server ./server
-  - docker build -t patrick/multi-worker ./worker
+  - docker build -t comeanddancewithme/multi-client ./client
+  - docker build -t comeanddancewithme/multi-nginx ./nginx
+  - docker build -t comeanddancewithme/multi-server ./server
+  - docker build -t comeanddancewithme/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   # Take those images and push them to docker hub
-  - docker push patrick/multi-client
-  - docker push patrick/multi-nginx
-  - docker push patrick/multi-server
-  - docker push patrick/multi-worker
+  - docker push comeanddancewithme/multi-client
+  - docker push comeanddancewithme/multi-nginx
+  - docker push comeanddancewithme/multi-server
+  - docker push comeanddancewithme/multi-worker
