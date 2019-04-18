@@ -17,7 +17,7 @@
 		},
 		{
 			"name": "worker",
-			"iamge": "comeanddancewithme/multi-worker",
+			"image": "comeanddancewithme/multi-worker",
 			"hostname": "worker",
 			"essential": false,
 			"memory": 128
